@@ -1,6 +1,6 @@
 # Memory Game
 
-
+Enjoy the Game[Try the game](https://aakash2408.github.io/Memory-Game/)
 
 <img src="https://user-images.githubusercontent.com/47134609/81472729-a3e7c500-9217-11ea-8841-d3476689234d.png" style="width: 400px;"/>
 
@@ -15,7 +15,7 @@ There are other development dependencies like Webpack, Babel, AutoPrefixer and s
 ### Clone this repo
 
 ```
-git clone 
+git clone  https://github.com/Aakash2408/Memory-Game
 ```
 
 ### Install all dependencies
