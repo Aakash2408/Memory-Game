@@ -1,0 +1,586 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 10px;
+}
+
+html {
+  font-family: "Fredoka One", "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 16px;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  color: #ddd;
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  letter-spacing: 10px;
+}
+
+body {
+  background: #093028;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #237A57, #093028);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #237A57, #093028); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.logo {
+  width: 80px;
+  margin: 0 10px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.game-form {
+  display: flex;
+  flex-flow: column nowrap;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 12px -2px rgba(0, 0, 0, 0.75);
+}
+
+.game-form > * {
+  margin-top: 20px;
+  font: inherit;
+}
+
+.game-form > label {
+  color: #333;
+  font-size: 2rem;
+}
+
+.game-form > input {
+  font-size: 2rem;
+  color: #a9220b;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  padding: 12px;
+  border-bottom: 1px solid #111;
+}
+
+.game-form > button {
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  border: 1px solid #111;
+  border-radius: 8px;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 3px 3px 12px -2px rgba(0, 0, 0, 0.75);
+  word-wrap: break-word;
+}
+
+.game-form > button.btn-start {
+  background: #0b43a9;
+  color: #ddd;
+}
+
+.game-form > button.btn-leaderboard {
+  background: #e0835d;
+  color: #ddd;
+}
+
+.game-form > button:hover {
+  background: rgb(33, 79, 167);
+}
+
+.game-form > button.btn-leaderboard:hover {
+  background: rgb(219, 119, 80);
+}
+
+.board-container {
+  display: none;
+}
+
+.score-panel {
+  min-width: 120px;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 3px 3px 12px -2px rgba(0, 0, 0, 0.75);
+  color: #333;
+  padding: 5px;
+}
+
+.score-panel > div > h2 {
+  padding: 10px 0;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.score-panel > div > div {
+  font-size: 1.9rem;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 10px;
+  color: rgb(194, 41, 41);
+}
+
+.score-panel button {
+  background: #dc7424;
+  color: #ddd;
+  padding: 5px;
+  margin: 20px 0;
+  font-size: 1rem;
+  border-radius: 12px;
+  box-shadow: 0.5px 0.5px 0.2px 0.2px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.score-panel button:hover {
+  background: rgb(218, 131, 65);
+}
+
+.board {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  /* flex: 1; */
+  border: 1px solid black;
+  perspective: 800px;
+  padding: 15px;
+  margin: 0 15px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 3px 3px 12px -2px rgba(0, 0, 0, 0.75);
+}
+
+.modal-container {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(51, 51, 51, 0.5);
+  z-index: 99;
+}
+
+.modal {
+  position: absolute;
+  width: 80%;
+  max-width: 400px;
+  top: 50%;
+  left: 50%;
+  background: #ddd;
+  padding: 30px;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  box-shadow: 3px 3px 12px -2px rgba(0, 0, 0, 0.75);
+  word-wrap: break-word;
+}
+
+.modal p {
+  font-size: 1.5rem;
+}
+
+.modal > h3 {
+  color: #333;
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.modal > button {
+  background: #dc7424;
+  color: #ddd;
+  padding: 15px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 1px 1px 0.5px 0.5px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.modal > button:hover {
+  background: rgb(218, 131, 65);
+}
+
+.card {
+  flex: 1 1 20%;
+  /* position: relative; */
+  margin: 4px;
+  transform-style: preserve-3d;
+  transition: transform 1s, box-shadow 1.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card > div {
+  backface-visibility: hidden;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+.card > div.front {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+}
+
+.card > div.front img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card > div,
+.card > div.front img {
+  border-radius: 8px;
+}
+
+.card > div.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(
+        circle farthest-side at 0% 50%,
+        #fb1 23.5%,
+        rgba(240, 166, 17, 0) 0
+      )
+      21px 30px,
+    radial-gradient(
+        circle farthest-side at 0% 50%,
+        #b71 24%,
+        rgba(240, 166, 17, 0) 0
+      )
+      19px 30px,
+    linear-gradient(
+        #fb1 14%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 85%,
+        #fb1 0
+      )
+      0 0,
+    linear-gradient(
+        150deg,
+        #fb1 24%,
+        #b71 0,
+        #b71 26%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 74%,
+        #b71 0,
+        #b71 76%,
+        #fb1 0
+      )
+      0 0,
+    linear-gradient(
+        30deg,
+        #fb1 24%,
+        #b71 0,
+        #b71 26%,
+        rgba(240, 166, 17, 0) 0,
+        rgba(240, 166, 17, 0) 74%,
+        #b71 0,
+        #b71 76%,
+        #fb1 0
+      )
+      0 0,
+    linear-gradient(90deg, #b71 2%, #fb1 0, #fb1 98%, #b71 0%) 0 0 #fb1;
+  background-size: 40px 60px;
+  z-index: 1;
+}
+
+.card.flipped {
+  transform: rotateY(180deg) translate(0, 0);
+  box-shadow: 0px 0px 0px 0px rgb(4, 211, 4);
+}
+
+.card.flipped.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: rotateY(180deg) translate(0, 0);
+}
+
+.highlight {
+  animation-name: squash;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+  animation-delay: 0;
+  animation-timing-function: ease-out;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: rotateY(180deg) translate(-1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: rotateY(180deg) translate(2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotateY(180deg) translate(-4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: rotateY(180deg) translate(4px, 0);
+  }
+}
+
+@keyframes squash {
+  from {
+    width: 100%;
+    height: 100%;
+  }
+  to {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.leaderboard-container {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 30px;
+  border-radius: 8px;
+  color: #333;
+  box-shadow: 3px 3px 12px -2px rgba(0, 0, 0, 0.75);
+  display: none;
+}
+
+.leaderboard-container h2 {
+  margin: 20px 0;
+}
+
+.btn-back {
+  padding: 10px;
+  border-radius: 8px;
+  background: #0b43a9;
+  color: #ddd;
+  border: 1px solid #333;
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  background: rgb(33, 79, 167);
+}
+
+table {
+  margin: auto;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+table,
+th,
+td {
+  border: 1px solid #333;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  padding: 15px;
+}
+
+footer {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  color: #333;
+}
+
+.social-icon-wrapper {
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.social-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .score-panel > div > div {
+    border-bottom: 0;
+    font-size: 1.9rem;
+  }
+
+  .board {
+    padding: 5px;
+    margin: 0;
+  }
+
+  .leaderboard-container {
+    padding: 15px;
+  }
+  
+  .leaderboard-container h2 {
+    margin: 20px 0;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal > h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal p {
+    font-size: 1rem;
+  }
+
+  .modal > button {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .logo {
+    width: 100px;
+    margin: 0 10px;
+  }
+
+  .board-container {
+    flex-flow: column nowrap;
+  }
+
+  .game-form > label {
+    font-size: 1.7rem;
+  }
+
+  .game-form > input {
+    font-size: 1.7rem;
+  }
+
+  .game-form > button {
+    font-size: 1.2rem;
+  }
+
+
+  .score-panel {
+    padding: 3px;
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .score-panel > div > div {
+    font-size: 1.7rem;
+  }
+
+  .card {
+    margin: 4px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal > h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal p {
+    font-size: 0.8rem;
+  }
+
+  .modal button {
+    font-size: 0.8rem;
+  }
+  
+}
+
+@media screen and (max-width: 320px) {
+  .brand {
+    flex-flow: row wrap;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .game-form {
+    padding: 30px;
+  }
+
+  .game-form > label {
+    font-size: 1.5rem;
+  }
+
+  .game-form > input {
+    font-size: 1.5rem;
+  }
+
+  .game-form > button {
+    font-size: 1rem;
+  }
+
+  .score-panel > div > div {
+    font-size: 1.2rem;
+  }
+
+  .leaderboard-container {
+    padding: 5px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 0.7rem;
+    padding: 2px;
+  }
+}
