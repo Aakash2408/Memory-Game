@@ -1,4 +1,4 @@
-# Matching Game
+# Memory Game
 
 
 
@@ -30,5 +30,10 @@ npm install
 npm start
 ```
 
+## Deployment
 
+This command will bundle and optimize the codes. The output is in the 'dist' folder.
+```
+npm run build
+```
 

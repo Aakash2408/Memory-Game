@@ -1,5 +1,5 @@
 {
-  "name": "matching-game",
+  "name": "memory-game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Aakash Sangwan",
+  "author": "Jan Vigar",
   "license": "ISC",
   "babel": {
     "presets": [

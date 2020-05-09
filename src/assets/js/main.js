@@ -15,7 +15,7 @@ document
   .addEventListener("click", handleViewLeaderboard);
 
 /**
- * logic for start button click
+ * Handle logics for when the start button is clicked
  */
 function handleStart() {
   // create new game instance
@@ -50,7 +50,7 @@ function handleViewLeaderboard() {
 }
 
 /**
- * logic for back to the game
+ * Handle logics for going back to the game
  */
 function handleBackToGame() {
   document.querySelector(".form-container").style.display = "block";
@@ -58,7 +58,7 @@ function handleBackToGame() {
 }
 
 /**
- *  logics for updating the leaderboard 
+ * Handle logics for updating the leaderboard table
  */
 function updateLeaderboard() {
   const tbody = document.querySelector(".leaderboard tbody");
@@ -70,7 +70,7 @@ function updateLeaderboard() {
   const playerScores =
     JSON.parse(localStorage.getItem("MEMORY_GAME_SCORE")) || [];
 
-  // sorting  the player scores based on moves and time
+  // sort the player scores based on moves and time
   playerScores.sort(function(a, b) {
     if (a.moves < b.moves) return -1;
     if (a.moves > b.moves) return 1;
